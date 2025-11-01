@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +44,11 @@ export default function RootLayout({
           <div className="layout-container flex h-full grow flex-col">
             <div className="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
               <div className="layout-content-container flex flex-col w-full max-w-[960px] flex-1">
-                {children}
+                <Header />
+                <main className="flex flex-col items-center flex-1 py-10 md:py-20">
+                  {children}
+                </main>
+                <Footer />
               </div>
             </div>
           </div>
